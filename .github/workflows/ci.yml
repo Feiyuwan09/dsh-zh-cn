@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Node $ {{ matrix.node }}
+    name: Node ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: $ {{ matrix.node }}
+          node-version: ${{ matrix.node }}
 
       - name: 语法检查
         run: npm run check
