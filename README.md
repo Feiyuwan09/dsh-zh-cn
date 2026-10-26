@@ -10,7 +10,38 @@ DSH 插件：让 AI **始终使用简体中文回复**，包括：
 
 唯一例外：用户明确要求使用其他语言时，遵照用户要求。
 
-## 安装（本地插件）
+## 一键安装
+
+打开终端，运行（`<name>` 换成你的 profile 名，如 `desktop` / `web`）：
+
+```bash
+dsh plugin --profile <name> add github:Feiyuwan09/dsh-zh-cn
+```
+
+官方 `dsh plugin` 命令会转发给 pnpm 完成安装，并**自动**把插件注册进
+profile 的 `dsh.profile.bundles`（带 `dsh.bundle` 声明的包在安装后自动成为
+profile 补丁层），无需手动改任何文件。
+
+然后**重启 DeepSeek Harness** 即生效。
+
+> 说明：
+>
+> - 若 profile 尚未初始化（如第一次使用的自定义 profile），命令会自动创建；
+> - `desktop` profile 需先至少启动过一次 DeepSeek Harness Desktop 才能使用
+>   `dsh plugin` 管理，且运行时请完全退出后再执行；
+> - 若提示 pnpm 拦截 git 依赖的构建脚本（prepare script），按输出提示把
+>   pnpm 打印的 key 加入 profile 下的 `pnpm-workspace.yaml` 的 `allowBuilds`
+>   后重跑。本插件为纯 JavaScript、无构建脚本，正常情况下不会触发。
+
+## 卸载
+
+```bash
+dsh plugin --profile <name> remove dsh-zh-cn
+```
+
+然后重启 Harness。该命令会同步从依赖与 bundle 列表中移除插件。
+
+## 手动安装（可选）
 
 1. 将本目录（`dsh-zh-cn`）放到 `~/.dsh/plugins/` 下；
 2. 编辑 `~/.dsh/profiles/<profile>/package.json`：
@@ -60,10 +91,6 @@ DSH 插件：让 AI **始终使用简体中文回复**，包括：
 npm run check   # 语法检查
 npm test        # 单元测试
 ```
-
-## 卸载
-
-删除 profile `package.json` 中的 `dsh-zh-cn` 依赖与 bundle 条目，重启 Harness。
 
 ## License
 
