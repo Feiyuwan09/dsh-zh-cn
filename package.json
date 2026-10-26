@@ -1,0 +1,53 @@
+{
+  "name": "dsh-zh-cn",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "DSH 插件：让 AI 始终使用简体中文回复（含工具调用之间的叙述文字与思考过程），除非用户明确要求其他语言。",
+  "author": {
+    "name": "Feiyuwan09",
+    "url": "https://github.com/Feiyuwan09"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Feiyuwan09/dsh-zh-cn.git"
+  },
+  "homepage": "https://github.com/Feiyuwan09/dsh-zh-cn#readme",
+  "bugs": {
+    "url": "https://github.com/Feiyuwan09/dsh-zh-cn/issues"
+  },
+  "main": "lib/index.mjs",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib/index.mjs",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check lib/index.mjs",
+    "test": "node test/test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "chinese",
+    "simplified-chinese",
+    "language",
+    "system-prompt"
+  ]
+}

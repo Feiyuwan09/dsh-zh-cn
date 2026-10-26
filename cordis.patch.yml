@@ -1,0 +1,5 @@
+# dsh-zh-cn bundle：注册「始终使用简体中文回复」插件（host）。
+# 只 insert 自身 id 一次；name 为包名，由 cordis loader 解析到 package.json 的 main 入口。
+- insert:
+    - id: zh-cn
+      name: 'dsh-zh-cn'
